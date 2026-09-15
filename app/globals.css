@@ -1,1 +1,148 @@
 @import "tailwindcss";
+
+/* Theme is switched by setting data-theme on <html>; this exposes it to
+   Tailwind as the `dark:` variant. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+  Semantic colour tokens. Utilities reference these through `@theme inline`,
+  so switching `data-theme` on <html> re-themes the whole site with no JS
+  touching individual elements.
+*/
+:root {
+  --paper: #fbfaf7;
+  --sunken: #f3f2ed;
+  --ink: #15171a;
+  --ink-soft: #3c4046;
+  --muted: #6d7178;
+  --rule: #e3e1da;
+  --rule-strong: #cbc9c0;
+  --accent: #9c4221;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #17181b;
+  --sunken: #1e2024;
+  --ink: #e9e6df;
+  --ink-soft: #b9b6ae;
+  --muted: #8a8d93;
+  --rule: #2a2c31;
+  --rule-strong: #40434a;
+  --accent: #cf8055;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+
+  --font-display: var(--font-newsreader), ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, "SF Mono",
+    Menlo, monospace;
+
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1.5;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.6;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.75;
+  --text-lead: 1.4375rem;
+  --text-lead--line-height: 1.55;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-newsreader), ui-serif, Georgia,
+      "Times New Roman", serif;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility label {
+  font-family: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+  font-size: var(--text-meta);
+  line-height: var(--text-meta--line-height);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Editorial link: hairline underline that darkens and shifts on hover. */
+@utility link-quiet {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 140ms ease,
+    text-decoration-color 140ms ease;
+
+  &:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+}
+
+@utility link-plain {
+  color: inherit;
+  text-decoration: none;
+  transition: color 140ms ease;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
