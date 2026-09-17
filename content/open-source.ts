@@ -164,7 +164,7 @@ export const bitcoinLearning: LedgerItem[] = [
   },
   {
     label: "BitDevs",
-    detail: "Meetup content contribution for the Kaduna Bitcoin community",
+    detail: "Meetup content contribution for a local Bitcoin community",
     href: "https://github.com/bitdevsKaduna/bitdevskaduna.org/pull/5",
   },
 ];

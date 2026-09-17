@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# job-application material (private, not part of the public site)
+/application-portfolio
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
