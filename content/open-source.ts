@@ -124,7 +124,8 @@ export const contributions: Contribution[] = [
     repository: "https://github.com/Jolah1/ghostKey",
     language: "TypeScript",
     about: "An inheritance layer for Bitcoin.",
-    focus: "Copy architecture — the vocab layer, in English and Nigerian Pidgin.",
+    focus:
+      "Copy architecture — the vocab layer, in English and Nigerian Pidgin.",
     pullRequests: [
       {
         number: 272,
@@ -162,7 +163,7 @@ export const bitcoinLearning: LedgerItem[] = [
     href: "https://github.com/7-falseparfait/btc-decoder",
   },
   {
-    label: "BitDevs Kaduna",
+    label: "BitDevs",
     detail: "Meetup content contribution for the Kaduna Bitcoin community",
     href: "https://github.com/bitdevsKaduna/bitdevskaduna.org/pull/5",
   },

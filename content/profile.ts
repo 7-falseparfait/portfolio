@@ -3,7 +3,7 @@ import type { LinkRef } from "./types";
 export const profile = {
   name: "Wisdom C Osuji",
   role: "Frontend Developer · Technical Writer",
-  location: "Kaduna, Nigeria",
+  location: "Nigeria",
   timezone: "UTC+1",
   email: "weezdomosuji@gmail.com",
   phone: "+234 808 189 3835",
